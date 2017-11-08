@@ -38,10 +38,12 @@
 <div class="row">
 
 <div class="col-md-3 col-md-offset-3 text-center">
-    <a><button class="viewProfile"><i class="fa fa-profile fa-user" aria-hidden="true"></i><br>View Profile</button></a>
+        <a href="{!! url('/profile/'.Auth::user()->name) !!}">
+        <button class="viewProfile"><i class="fa fa-profile fa-user" aria-hidden="true"></i><br>View Profile</button></a>
 </div>
     <div class="col-md-3 text-center">
-    <a><button class="editProfile"><i class="fa fa-profile fa-user-md" aria-hidden="true"></i><br>Edit Profile</button></a>
+        <a href="{!! url('/profile/'.Auth::user()->name).'/edit' !!}">
+            <button class="editProfile"><i class="fa fa-profile fa-user-md" aria-hidden="true"></i><br>Edit Profile</button></a>
 </div>
 
 </div>
