@@ -54,7 +54,7 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            @if (Auth::User()->level() >= 2) {
+                            @if (Auth::User()->level() >= 2)
                             <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'class=active' : null }}>
                                 {!! HTML::link(url('/profile/'.Auth::user()->name), trans('titles.profile')) !!}
                             </li>
