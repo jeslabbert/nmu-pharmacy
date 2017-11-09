@@ -36,7 +36,7 @@
         </h6>
         <hr>
 <div class="row">
-@if (Auth::User()->level() >= 2)
+@if (Auth::User()->level() <= 2)
 <div class="col-md-3 col-md-offset-3 text-center">
         <a href="{!! url('/profile/'.Auth::user()->name) !!}">
         <button class="viewProfile"><i class="fa fa-profile fa-user" aria-hidden="true"></i><br>View Profile</button></a>
