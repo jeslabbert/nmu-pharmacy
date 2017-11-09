@@ -108,9 +108,15 @@
                                                     {!! Form::close() !!}
                                                 </td>
                                                 <td>
+                                                    @if ($user_role->name == 'User')
                                                     <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('users/deleted/' . $user->id) }}" data-toggle="tooltip" title="Show User">
                                                         <i class="fa fa-eye fa-fw" aria-hidden="true"></i>
                                                     </a>
+                                                    @elseif ($user_role->name == 'Admin')
+                                                        <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('users/deleted/' . $user->id) }}" data-toggle="tooltip" title="Show User">
+                                                            <i class="fa fa-eye fa-fw" aria-hidden="true"></i>
+                                                        </a>
+                                                        @endif
                                                 </td>
                                                 <td>
                                                     {!! Form::model($user, array('action' => array('SoftDeletesController@destroy', $user->id), 'method' => 'DELETE', 'class' => 'inline', 'data-toggle' => 'tooltip', 'title' => 'Destroy User Record')) !!}
