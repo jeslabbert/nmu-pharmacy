@@ -60,6 +60,18 @@ return [
     'editEducationTitle'			=> 'Education Information',
 
 	// User edit profile form
+
+	'label-university_name'		=> 'Place of Study',
+	'ph-university_name'		=> 'Enter the university at which you studied',
+
+    'label-qualification_name'	=> 'Type of Qualification',
+
+    'label-first_enrolled'		=> 'First Enrolled in',
+    'ph-first_enrolled'		    => 'Enter date of first enrollment',
+
+    'label-graduated'		=> 'Graduated in',
+    'ph-graduated'		    => 'Enter date of graduation',
+
 	'label-theme'				=> 'Your theme:',
 	'ph-theme'					=> 'Select your theme',
 
