@@ -117,7 +117,7 @@ return [
 
     'label-pssa_registration'		=> 'PSSA Registration Date:',
     'ph-pssa_registration'		=> 'Enter your PSSA registration date',
-
+    'label-practice_site_id' => 'Practice Site',
     'label-internship_completed'		=> 'Have you started or done your internship/traineeship yet?',
     'label-qualified'		=> 'Have you completed your internship/traineeship yet?',
     'label-working'		=> 'Have you started working yet?',
