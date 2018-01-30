@@ -266,10 +266,40 @@
                           @endif
 
                       </dl>
+                      @if ($user->profile->internship_current === 1)
                       <h6>Internship Information</h6>
                       <dl class="user-info">
 
+                          @if ($user->profile->internship_completed === 1)
+                                  <dt>
+                                      Location
+                                  </dt>
+                                  <dd>
+                                      {{$user->profile->internship_location}}
+                                  </dd>
+                              <dt>
+                                  Status
+                              </dt>
+                              <dd>
+                                  Finished Internship
+                              </dd>
+                          @else
+                                  <dt>
+                                      Location
+                                  </dt>
+                                  <dd>
+                                      {{$user->profile->internship_location}}
+                                  </dd>
+                                  <dt>
+                                      Status
+                                  </dt>
+                                  <dd>
+                                      Currently on Internship
+                                  </dd>
+                              @endif
+
                       </dl>
+                      @endif
                   </div>
               </div>
               @if ($user->profile->bio)

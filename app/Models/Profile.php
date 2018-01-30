@@ -39,6 +39,8 @@ class Profile extends Model {
         'pssa_active',
         'pssa_registration',
         'internship_completed',
+        'internship_current',
+        'internship_location',
         'qualified',
         'working',
         'practice_site_id',

@@ -136,6 +136,7 @@ class UsersManagementController extends Controller
 
         $user = User::find($id);
         $currentTheme = Theme::find($user->profile->theme_id);
+        //dd($user->profile->internship_completed);
 //        $qualifications = Qualifications::with('qualification_name');
 //        foreach ($qualifications as $qualification) {
 //            echo $qualification;

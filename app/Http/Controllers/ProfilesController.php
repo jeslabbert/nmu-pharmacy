@@ -102,7 +102,7 @@ class ProfilesController extends Controller
 //        };
 //        dd($qualifications);
         $education = $user->qualification;
-
+        dd($user->profile->internship_completed);
         $data = [
             'user' => $user,
             'currentTheme' => $currentTheme,
@@ -138,7 +138,7 @@ class ProfilesController extends Controller
         {
             $practiceSites[$value['id']] = $value['site_name'];
         }
-
+//dd($user->profile->internship_completed);
         $qualifications = auth()->user()->qualification;
         $themes = Theme::where('status', 1)
                        ->orderBy('name', 'asc')
@@ -155,6 +155,7 @@ class ProfilesController extends Controller
             'practiceSites' => $practiceSites,
             'education' => $education
         ];
+       // dd($data);
 
         return view('profiles.edit')->with($data);
 
@@ -171,7 +172,7 @@ class ProfilesController extends Controller
     {
         $user = $this->getUserByUsername($username);
 
-        $input = Input::only('theme_id', 'location', 'bio', 'sa_id', 'sex', 'passport_number', 'primary_cell', 'secondary_cell', 'twitter_username', 'facebook_username','qualification_name', 'university_name', 'first_enrolled', 'graduated', 'sapc_active', 'sapc_number', 'pssa_number', 'pssa_registration', 'pssa_active', 'practice_site_id');
+        $input = Input::only('theme_id', 'location', 'bio', 'sa_id', 'sex', 'passport_number', 'primary_cell', 'secondary_cell', 'twitter_username', 'facebook_username','qualification_name', 'university_name', 'internship_completed', 'internship_current', 'internship_location', 'first_enrolled', 'graduated', 'sapc_active', 'sapc_number', 'pssa_number', 'pssa_registration', 'pssa_active', 'practice_site_id');
 
         foreach($input as $key=>$value)
         {
@@ -189,6 +190,16 @@ class ProfilesController extends Controller
         if(isset($input['pssa_active']))
         {
             $input['pssa_active'] = ($input['pssa_active'] ==='on' ? true : false );
+        }
+
+        if(isset($input['internship_current']))
+        {
+            $input['internship_current'] = ($input['internship_current'] ==='on' ? true : false );
+        }
+
+        if(isset($input['internship_completed']))
+        {
+            $input['internship_completed'] = ($input['internship_completed'] ==='on' ? true : false );
         }
 
 

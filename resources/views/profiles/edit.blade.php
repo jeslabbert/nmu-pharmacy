@@ -57,6 +57,9 @@
 							<span class="tab-pane edit_education">
 								{{ trans('profile.editEducationTitle') }}
 							</span>
+							<span class="tab-pane edit_education">
+								{{ trans('profile.editInternshipTitle') }}
+							</span>
 							<span class="tab-pane edit_membership">
 								{{ trans('profile.editMembershipTitle') }}
 							</span>
@@ -253,6 +256,55 @@
 												</div>
 											</div>
 											<hr>
+											<h6>Internship Details</h6>
+
+											<div class="form-group has-feedback {{ $errors->has('profile.internship_current') ? ' has-error ' : '' }}">
+												{!! Form::label('internship_current', trans('profile.label-internship_current') , array('class' => 'col-sm-4 control-label')); !!}
+												<div class="col-sm-6">
+													{!! Form::checkbox('internship_current', old('internship_current'), array('id' => 'internship_current', 'class' => 'form-control', 'placeholder' => trans('profile.ph-internship_current'))) !!}
+												</div>
+											</div>
+											<div id="autoUpdate" class="autoUpdate" @if ($user->profile->internship_current === 0) hidden @endif >
+											<div class="form-group has-feedback {{ $errors->has('internship_completed') ? ' has-error ' : '' }}">
+												{!! Form::label('internship_completed', trans('profile.label-internship_completed') , array('class' => 'col-sm-4 control-label')); !!}
+												<div class="col-sm-6">
+													<input type="checkbox" id="internship_completed" name="internship_completed" @if ($user->profile->internship_completed === 1) checked="checked" @endif />
+
+												</div>
+											</div>
+
+
+												<div class="form-group has-feedback {{ $errors->has('internship_location') ? ' has-error ' : '' }}">
+													{!! Form::label('internship_location', trans('profile.label-internship_location') , array('class' => 'col-sm-4 control-label')); !!}
+													<div class="col-sm-6">
+														{!! Form::text('internship_location', old('internship_location'), array('id' => 'internship_location', 'class' => 'form-control', 'placeholder' => trans('profile.ph-internship_location'))) !!}
+														<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+														@if ($errors->has('internship_location'))
+															<span class="help-block">
+											                <strong>{{ $errors->first('internship_location') }}</strong>
+											            </span>
+														@endif
+													</div>
+												</div>
+											</div>
+
+											<script>
+                                                $('#internship_completed').change(function(){
+                                                    if (this.checked) {
+                                                        $('#autoUpdate').fadeIn('slow');
+                                                    } else {
+                                                        $('#autoUpdate').fadeOut('slow');
+                                                    }
+                                                });
+                                                $('#internship_current').change(function(){
+                                                    if (this.checked) {
+                                                        $('#autoUpdate').fadeIn('slow');
+                                                    } else {
+                                                        $('#autoUpdate').fadeOut('slow');
+                                                    }
+                                                });
+											</script>
+											<hr>
 											<h6>Biography</h6>
 											<div class="form-group has-feedback {{ $errors->has('bio') ? ' has-error ' : '' }}">
 												{!! Form::label('bio', trans('profile.label-bio') , array('class' => 'col-sm-4 control-label')); !!}
@@ -308,6 +360,7 @@
 													@endif
 												</div>
 											</div>
+
 											<div class="margin-bottom-2 form-group has-feedback {{ $errors->has('qualification_name') ? ' has-error ' : '' }}">
 												{!! Form::label('qualification_name', trans('profile.label-qualification_name') , array('class' => 'col-sm-4 control-label')); !!}
 												<div class="col-sm-6">

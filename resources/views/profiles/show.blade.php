@@ -220,7 +220,22 @@
 							</dl>
 							<h6>Internship Information</h6>
 							<dl class="user-info">
-
+								@if ($user->profile->internship_current === 1)
+									<dt>
+										{{$user->profile->internship_location}}
+									</dt>
+									<dd>
+										Currently on Internship
+									</dd>
+								@endif
+									@if ($user->profile->internship_completed === 1)
+										<dt>
+											{{$user->profile->internship_location}}
+										</dt>
+										<dd>
+											Finished Internship
+										</dd>
+									@endif
 							</dl>
 						</div>
 					</div>
