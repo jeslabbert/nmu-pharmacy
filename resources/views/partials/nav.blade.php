@@ -12,15 +12,15 @@
 
             {{-- Branding Image --}}
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img  style="width:120px;" src="{{URL::asset('/images/logo.png')}}">
+                <img  style="width:140px;" src="{{URL::asset('/images/logo.png')}}">
             </a>
         </div>
-<div class="navbar-text hidden-sm hidden-xs">
+<div class="navbar-text hidden-sm hidden-xs" style="font-size: large">
     {!! trans('titles.app') !!}
 </div>
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             {{-- Left Side Of Navbar --}}
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" style="font-size: large">
                 @role('admin')
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -36,7 +36,7 @@
             </ul>
 
             {{-- Right Side Of Navbar --}}
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" style="font-size: large">
                 {{-- Authentication Links --}}
                 @if (Auth::guest())
                     <li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>
