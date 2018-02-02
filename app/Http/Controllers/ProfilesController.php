@@ -95,14 +95,14 @@ class ProfilesController extends Controller
 
         }
 
-        $currentTheme = Theme::find($user->profile->theme_id);
+        $currentTheme = Theme::find(1);
 //        $qualifications = Qualifications::with('qualification_name');
 //        foreach ($qualifications as $qualification) {
 //            echo $qualification;
 //        };
 //        dd($qualifications);
         $education = $user->qualification;
-        dd($user->profile->internship_completed);
+        //dd($user->profile->internship_completed);
         $data = [
             'user' => $user,
             'currentTheme' => $currentTheme,
@@ -139,12 +139,11 @@ class ProfilesController extends Controller
             $practiceSites[$value['id']] = $value['site_name'];
         }
 //dd($user->profile->internship_completed);
-        $qualifications = auth()->user()->qualification;
         $themes = Theme::where('status', 1)
                        ->orderBy('name', 'asc')
                        ->get();
 
-        $currentTheme = Theme::find($user->profile->theme_id);
+        $currentTheme = Theme::find(1);
 
         $education = $user->qualification;
 
@@ -170,6 +169,7 @@ class ProfilesController extends Controller
      */
     public function update($username, Request $request)
     {
+        //dd('Hello');
         $user = $this->getUserByUsername($username);
 
         $input = Input::only('theme_id', 'location', 'bio', 'sa_id', 'sex', 'passport_number', 'primary_cell', 'secondary_cell', 'twitter_username', 'facebook_username','qualification_name', 'university_name', 'internship_completed', 'internship_current', 'internship_location', 'first_enrolled', 'graduated', 'sapc_active', 'sapc_number', 'pssa_number', 'pssa_registration', 'pssa_active', 'practice_site_id');
@@ -201,7 +201,16 @@ class ProfilesController extends Controller
         {
             $input['internship_completed'] = ($input['internship_completed'] ==='on' ? true : false );
         }
+        $qualifications = Input::only('qualification_name',
+            'university_name',
+            'first_enrolled',
+            'graduated');
 
+//        $qualifications['first_enrolled'] = Carbon::now(); // for now
+//        $qualifications['graduated'] = Carbon::now(); // for now
+
+        $qualification = auth()->user()->qualification()->create($qualifications);
+        //dd($qualification);
 
         $ipAddress = new CaptureIpTrait;
 
@@ -239,8 +248,8 @@ class ProfilesController extends Controller
 //        $qualifications['first_enrolled'] = Carbon::now(); // for now
 //        $qualifications['graduated'] = Carbon::now(); // for now
 
-        auth()->user()->qualification()->create($qualifications);
-
+        $qualification = auth()->user()->qualification()->create($qualifications);
+dd($qualification);
         $user->updated_ip_address = $ipAddress->getClientIp();
 
         $user->save();
@@ -311,6 +320,18 @@ class ProfilesController extends Controller
         }
 
         $user->updated_ip_address = $ipAddress->getClientIp();
+
+
+        $qualifications = Input::only('qualification_name',
+            'university_name',
+            'first_enrolled',
+            'graduated');
+
+//        $qualifications['first_enrolled'] = Carbon::now(); // for now
+//        $qualifications['graduated'] = Carbon::now(); // for now
+
+        $qualification = auth()->user()->qualification()->create($qualifications);
+        dd($qualification);
 
         $user->save();
 

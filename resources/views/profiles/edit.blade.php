@@ -14,8 +14,8 @@
 
 						<div class="btn-group pull-right btn-group-xs">
 
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
+							<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<b>Form Menu</b>
 								<span class="sr-only">{{ trans('profile.editTriggerAlt') }}</span>
 							</button>
 							<ul class="dropdown-menu">
@@ -326,7 +326,7 @@
 													{!! Form::button(
 														'<i class="fa fa-fw fa-save" aria-hidden="true"></i> ' . trans('profile.submitButton'),
 														 array(
-															'class' 		 	=> 'btn btn-success disableddd',
+															'class' 		 	=> 'btn btn-success',
 															'type' 			 	=> 'button',
 															'data-target' 		=> '#confirmForm',
 															'data-modalClass' 	=> 'modal-success',
@@ -405,7 +405,7 @@
 												{!! Form::button(
                                                     '<i class="fa fa-fw fa-save" aria-hidden="true"></i> ' . trans('profile.addUniversityButton'),
                                                      array(
-                                                        'class' 		 	=> 'btn btn-success disabled',
+                                                        'class' 		 	=> 'btn btn-success',
                                                         'type' 			 	=> 'button',
                                                         'data-target' 		=> '#confirmForm',
                                                         'data-modalClass' 	=> 'modal-success',
