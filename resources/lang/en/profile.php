@@ -58,7 +58,7 @@ return [
     'editMembershipTitle'			=> 'Membership Information',
 
     // USER EDIT education page
-    'editEducationTitle'			=> 'Education Information',
+    'editInternshipTitle'			=> 'Internship Information',
 
 	// User edit profile form
 

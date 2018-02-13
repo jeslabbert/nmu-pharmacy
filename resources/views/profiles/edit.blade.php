@@ -57,9 +57,6 @@
 							<span class="tab-pane edit_education">
 								{{ trans('profile.editEducationTitle') }}
 							</span>
-							<span class="tab-pane edit_education">
-								{{ trans('profile.editInternshipTitle') }}
-							</span>
 							<span class="tab-pane edit_membership">
 								{{ trans('profile.editMembershipTitle') }}
 							</span>
