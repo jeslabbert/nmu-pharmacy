@@ -216,7 +216,14 @@
 											</dd>
 										@endif
 									@endif
-
+									@if ($user->profile->practice_site)
+										<dt>
+											{{ trans('profile.showProfilePracticeSite') }}
+										</dt>
+										<dd>
+											{{$user->profile->practice_site}}
+										</dd>
+									@endif
 							</dl>
 							<h6>Internship Information</h6>
 							<dl class="user-info">

@@ -364,7 +364,7 @@
 											<div class="margin-bottom-2 form-group has-feedback {{ $errors->has('qualification_name') ? ' has-error ' : '' }}">
 												{!! Form::label('qualification_name', trans('profile.label-qualification_name') , array('class' => 'col-sm-4 control-label')); !!}
 												<div class="col-sm-6">
-													{!! Form::select('qualification_name', ['Pharmacy Technician' => 'Pharmacy Technician', 'Pharmacist' => 'Pharmacist'], null, ['placeholder' => 'Pick a qualification...']); !!}
+													{!! Form::select('qualification_name', ['Pharmacy Technician' => 'Pharmacy Technician', 'Pharmacist' => 'Pharmacist', 'Post Graduate' => 'Post Graduate'], null, ['placeholder' => 'Pick a qualification...']); !!}
 													<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
 													@if ($errors->has('qualification_name'))
 														<span class="help-block">
@@ -520,9 +520,9 @@
 											</div>
 											{{--{!! Form::select('practice_site_id', old('practice_site_id'), $practiceSites, null, ['class' => 'form-control']) !!}--}}
 											<div class="margin-bottom-2 form-group has-feedback {{ $errors->has('practice_site_id') ? ' has-error ' : '' }}">
-												{!! Form::label('practice_site_id', trans('profile.label-practice_site_id') , array('class' => 'col-sm-4 control-label')); !!}
+												{!! Form::label('practice_site', trans('profile.label-practice_site') , array('class' => 'col-sm-4 control-label')); !!}
 												<div class="col-sm-6">
-													{!! Form::select('practice_site_id', $practiceSites, null, array('id' => 'practice_site_id', 'class' => 'form-control')) !!}
+													{!! Form::text('practice_site', old('practice_site'), array('id' => 'practice_site', 'class' => 'form-control', 'placeholder' => trans('profile.ph-practice_site'))) !!}
 												</div>
 											</div>
 

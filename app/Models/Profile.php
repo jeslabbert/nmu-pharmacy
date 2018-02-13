@@ -43,7 +43,7 @@ class Profile extends Model {
         'internship_location',
         'qualified',
         'working',
-        'practice_site_id',
+        'practice_site',
 	];
     protected $casts = [
         'theme_id' => 'integer',
