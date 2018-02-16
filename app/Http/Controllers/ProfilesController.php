@@ -332,7 +332,7 @@ class ProfilesController extends Controller
 //        $qualifications['graduated'] = Carbon::now(); // for now
 
         $qualification = auth()->user()->qualification()->create($qualifications);
-        dd($qualification);
+        //dd($qualification);
 
         $user->save();
 
