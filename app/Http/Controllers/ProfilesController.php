@@ -250,7 +250,7 @@ class ProfilesController extends Controller
 //        $qualifications['graduated'] = Carbon::now(); // for now
 
         $qualification = auth()->user()->qualification()->create($qualifications);
-dd($qualification);
+//dd($qualification);
         $user->updated_ip_address = $ipAddress->getClientIp();
 
         $user->save();
